@@ -4,7 +4,7 @@
 
 // Exercice 2
 // Dans jeu.js ajouter un peu de couleur avec chalk
-
+const Jeu = require('./jeu');
 
 const game = new Jeu();
 game.jouer();

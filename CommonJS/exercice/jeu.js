@@ -1,4 +1,6 @@
 const readline = require('readline');
+const chalk = require('chalk');
+const random = require('./random');
 
 class Jeu {
   constructor(options = {}) {
@@ -18,31 +20,33 @@ class Jeu {
 
   jouer() {
     if (this.essais.length) {
-      console.log(`Vous avez déjà joué : ${this.essais.join(' - ')}...`);
+      console.log(chalk.blue(`Vous avez déjà joué : ${this.essais.join(' - ')}...`));
     }
 
-    this._rl.question('Quel est le nombre entier ? ', (answer) => {
+    this._rl.question(chalk.magenta('Quel est le nombre entier ? '), (answer) => {
       const entierSaisi = Number.parseInt(answer);
 
       if (Number.isNaN(entierSaisi)) {
-        console.log('Erreur : il faut saisir un nombre');
+        console.log(chalk.red('Erreur : il faut saisir un nombre'));
         return this.jouer();
       }
 
       this.essais.push(entierSaisi);
 
       if (entierSaisi < this.entierAlea) {
-        console.log('Trop petit');
+        console.log(chalk.yellow('Trop petit'));
         return this.jouer();
       }
 
       if (entierSaisi > this.entierAlea) {
-        console.log('Trop grand');
+        console.log(chalk.yellow('Trop grand'));
         return this.jouer();
       }
 
-      console.log('Gagné');
+      console.log(chalk.green('Gagné'));
       this._rl.close();
     });
   }
 }
+
+module.exports = Jeu;
