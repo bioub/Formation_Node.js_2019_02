@@ -1,36 +1,48 @@
 const readline = require('readline');
 
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout
-});
+class Jeu {
+  constructor(options = {}) {
+    //      {min: 50,      max: 90}
+    //const {min: min = 0, max: max = 100} = options;
+    const {min = 0, max = 100} = options;
+    // const min = options.min || 0;
+    // const max = options.max !== undefined ? options.max : 100;
 
-function jouer() {
-  if (essais.length) {
-    console.log('Vous avez déjà joué : ' + essais.join(' - '));
+    this.entierAlea = random.getIntInclusive(min, max);
+    this.essais = [];
+    this._rl = readline.createInterface({
+      input: process.stdin,
+      output: process.stdout
+    });
   }
 
-  rl.question('Quel est le nombre entier ? ', (answer) => {
-    const entierSaisi = parseInt(answer);
-
-    if (isNaN(entierSaisi)) {
-      console.log('Erreur : il faut saisir un nombre');
-      return jouer();
+  jouer() {
+    if (this.essais.length) {
+      console.log(`Vous avez déjà joué : ${this.essais.join(' - ')}...`);
     }
 
-    essais.push(entierSaisi);
+    this._rl.question('Quel est le nombre entier ? ', (answer) => {
+      const entierSaisi = Number.parseInt(answer);
 
-    if (entierSaisi < entierAlea) {
-      console.log('Trop petit');
-      return jouer();
-    }
+      if (Number.isNaN(entierSaisi)) {
+        console.log('Erreur : il faut saisir un nombre');
+        return this.jouer();
+      }
 
-    if (entierSaisi > entierAlea) {
-      console.log('Trop grand');
-      return jouer();
-    }
+      this.essais.push(entierSaisi);
 
-    console.log('Gagné');
-    rl.close();
-  });
+      if (entierSaisi < this.entierAlea) {
+        console.log('Trop petit');
+        return this.jouer();
+      }
+
+      if (entierSaisi > this.entierAlea) {
+        console.log('Trop grand');
+        return this.jouer();
+      }
+
+      console.log('Gagné');
+      this._rl.close();
+    });
+  }
 }
