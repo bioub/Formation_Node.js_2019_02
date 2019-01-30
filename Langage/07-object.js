@@ -21,6 +21,7 @@ console.log(typeof console);
 // Python: dictionnary
 
 // on peut créer un objet avec
+// object literal
 const coords = {
   x: 10,
   y: 20,
@@ -56,11 +57,11 @@ const values = Object.values(coords); // ES8
 // pour convertir dans l'autre sens (voir la lib lodash)
 
 // On peut convertir object (en mémoire) <-> string (qu'on peut écrire dans un fichier)
-const json = JSON.stringify(coords);
+const json = JSON.stringify(coords); // ES5
 
 // ..... réseau .....
 
-const coordsFromJSON = JSON.parse(json);
+const coordsFromJSON = JSON.parse(json); // ES5
 
 // une autre façon de créer un objet :
 // constructor function
