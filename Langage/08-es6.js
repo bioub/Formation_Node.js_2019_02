@@ -1,6 +1,6 @@
 // REST Params (conversion liste de valeur -> array)
-function sum(...nbs) {
-  let result = 0;
+function sum(a, b, ...nbs) {
+  let result = a + b;
 
   nbs.forEach((nb) => { result += nb });
 

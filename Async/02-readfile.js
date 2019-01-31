@@ -16,7 +16,7 @@ catch (err) {
 // ^
 // |
 // |
-// |readFileSync                          toString
+// |readFileSync                          toString                           toString
 // +-------------------------------------------------------> temps
 //
 
@@ -31,8 +31,8 @@ fs.readFile(gitIgnorePath, (err, buffer) => {
 // pile d'appels
 // ^
 // |
-// |                                      toString
-// |readFile ...                          =>
+// |                                      toString     toString
+// |readFile readFile ...                 =>       ... =>
 // +-------------------------------------------------------> temps
 //
 
@@ -53,3 +53,11 @@ fs.readFile(gitIgnorePath)
     console.log('Erreur : ' + err.message);
   }
 })();
+
+
+
+// Version asynchrone hydride Promise + async/await
+(async () => {
+  const buffer = await fs.readFile(gitIgnorePath);
+  console.log(buffer.toString());
+})().catch((err) => console.log('Erreur : ' + err.message));;
