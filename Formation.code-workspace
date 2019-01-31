@@ -1,0 +1,23 @@
+{
+	"folders": [
+		{
+			"path": "Langage"
+		},
+		{
+			"path": "CommonJS"
+		},
+		{
+			"path": "Async"
+		},
+		{
+			"path": "Exercice-Build"
+		},
+		{
+			"path": "Webpack"
+		},
+		{
+			"path": "Web"
+		}
+	],
+	"settings": {}
+}

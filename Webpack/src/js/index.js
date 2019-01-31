@@ -1,7 +1,11 @@
 'use strict';
 
-const Horloge = require('./horloge');
+// import Horloge from './horloge';
 
-const divElt = document.querySelector('.horloge');
-const clock = new Horloge(divElt);
-clock.start();
+document.addEventListener('click', async () => {
+  const {default: Horloge} = await import('./horloge');
+  const divElt = document.querySelector('.horloge');
+  const clock = new Horloge(divElt);
+  clock.start();
+
+});
