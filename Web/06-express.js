@@ -51,6 +51,11 @@ app.get('/', (req, res) => {
   res.send('Hello');
 });
 
+
+app.get('/:sport/Actualites/:titre/:articleId', (req, res) => {
+  res.send('Hello');
+});
+
 app.get('/api/contacts/:contactId', (req, res) => {
   res.json({id: req.params.contactId, prenom: 'Romain'});
 });

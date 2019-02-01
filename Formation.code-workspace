@@ -17,6 +17,9 @@
 		},
 		{
 			"path": "Web"
+		},
+		{
+			"path": "AddressBook-REST"
 		}
 	],
 	"settings": {}

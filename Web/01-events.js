@@ -25,9 +25,6 @@ ee.once('user.created', (name) => {
   console.log('SMS email to ' + name);
 });
 
-
-
-
 createUser('Toto');
 createUser('Titi');
 console.log('Fin');
