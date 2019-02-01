@@ -3,8 +3,8 @@ const morgan = require('morgan');
 const cors = require('cors');
 
 const contactRoutes = require('./routes/contact');
-const userRoutes = require('./routes/user');
 
+const userRoutes = require('./routes/user');
 const app = express();
 
 // Log Middleware

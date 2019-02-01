@@ -2,7 +2,7 @@ const http = require('http');
 const mongoose = require('mongoose');
 
 const config = require('./config');
-const app  = require('./app');
+const app = require('./app');
 
 mongoose.connect('mongodb://localhost:27017/test', {useNewUrlParser: true});
 
